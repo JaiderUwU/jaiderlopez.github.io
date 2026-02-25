@@ -4,32 +4,54 @@ const progressBar = document.querySelector('.progress-bar');
 
 let scrollAmount = 0;
 let targetScroll = 0;
-const ease = 0.1; // Suavidad del scroll
+const ease = 0.1;
 
-// Calcular ancho total
 function getScrollWidth() {
     return container.scrollWidth - window.innerWidth;
 }
 
-// Evento de rueda del mouse - convertir vertical a horizontal
+// ========== DESKTOP: Scroll con rueda ==========
 window.addEventListener('wheel', (e) => {
-    e.preventDefault();
-    targetScroll += e.deltaY;
-    
-    // Limites
-    const maxScroll = getScrollWidth();
-    targetScroll = Math.max(0, Math.min(targetScroll, maxScroll));
+    if (window.innerWidth > 768) {
+        e.preventDefault();
+        targetScroll += e.deltaY;
+        const maxScroll = getScrollWidth();
+        targetScroll = Math.max(0, Math.min(targetScroll, maxScroll));
+    }
 }, { passive: false });
 
-// Animación suave
-function animate() {
-    // Interpolación suave
-    scrollAmount += (targetScroll - scrollAmount) * ease;
+// ========== MÓVIL: Touch swipe ==========
+let touchStartX = 0;
+let touchCurrentX = 0;
+let isTouching = false;
+
+document.addEventListener('touchstart', (e) => {
+    isTouching = true;
+    touchStartX = e.touches[0].clientX;
+    touchCurrentX = scrollAmount;
+}, { passive: true });
+
+document.addEventListener('touchmove', (e) => {
+    if (!isTouching) return;
     
-    // Aplicar transform
+    const touchX = e.touches[0].clientX;
+    const diff = touchStartX - touchX;
+    
+    targetScroll = touchCurrentX + diff;
+    
+    const maxScroll = getScrollWidth();
+    targetScroll = Math.max(0, Math.min(targetScroll, maxScroll));
+}, { passive: true });
+
+document.addEventListener('touchend', () => {
+    isTouching = false;
+});
+
+// ========== ANIMACIÓN SUAVE ==========
+function animate() {
+    scrollAmount += (targetScroll - scrollAmount) * ease;
     container.style.transform = `translateX(-${scrollAmount}px)`;
     
-    // Actualizar barra de progreso
     const progress = (scrollAmount / getScrollWidth()) * 100;
     progressBar.style.width = `${progress}%`;
     
@@ -38,42 +60,13 @@ function animate() {
 
 animate();
 
-// Teclas de dirección
+// ========== TECLAS ==========
 window.addEventListener('keydown', (e) => {
     const scrollStep = window.innerWidth * 0.8;
     
-    if (e.key === 'ArrowRight') {
-        targetScroll += scrollStep;
-    } else if (e.key === 'ArrowLeft') {
-        targetScroll -= scrollStep;
-    }
+    if (e.key === 'ArrowRight') targetScroll += scrollStep;
+    if (e.key === 'ArrowLeft') targetScroll -= scrollStep;
     
     const maxScroll = getScrollWidth();
     targetScroll = Math.max(0, Math.min(targetScroll, maxScroll));
-});
-
-// Touch/drag para móvil
-let isDragging = false;
-let startX;
-let scrollLeft;
-
-container.addEventListener('touchstart', (e) => {
-    isDragging = true;
-    startX = e.touches[0].pageX;
-    scrollLeft = targetScroll;
-});
-
-container.addEventListener('touchmove', (e) => {
-    if (!isDragging) return;
-    e.preventDefault();
-    const x = e.touches[0].pageX;
-    const walk = (startX - x) * 1.5;
-    targetScroll = scrollLeft + walk;
-    
-    const maxScroll = getScrollWidth();
-    targetScroll = Math.max(0, Math.min(targetScroll, maxScroll));
-});
-
-container.addEventListener('touchend', () => {
-    isDragging = false;
 });
