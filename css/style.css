@@ -12,73 +12,57 @@
     box-sizing: border-box;
 }
 
-/* ========== DESKTOP: Scroll horizontal ========== */
-@media (min-width: 769px) {
-    html, body {
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        height: 100%;
-        background: var(--bg);
-        color: var(--text);
-        font-family: var(--font-sans);
-    }
-
-    .horizontal-container {
-        display: flex;
-        height: 100vh;
-        width: fit-content;
-        will-change: transform;
-    }
-
-    .panel {
-        width: 100vw;
-        height: 100vh;
-        flex-shrink: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 4rem;
-        position: relative;
-    }
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-sans);
+    touch-action: none; /* Prevenir scroll nativo */
 }
 
-/* ========== MÓVIL: Scroll vertical nativo ========== */
+.horizontal-container {
+    display: flex;
+    height: 100vh;
+    width: fit-content;
+    will-change: transform;
+}
+
+.panel {
+    width: 100vw;
+    height: 100vh;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem;
+    position: relative;
+}
+
+/* Móvil: mismos tamaños pero adaptados */
 @media (max-width: 768px) {
-    html, body {
-        margin: 0;
-        padding: 0;
-        overflow-y: auto;
-        overflow-x: hidden;
-        height: auto;
-        background: var(--bg);
-        color: var(--text);
-        font-family: var(--font-sans);
-    }
-
-    .horizontal-container {
-        display: block;
-        height: auto;
-        width: 100%;
-    }
-
     .panel {
-        width: 100vw;
-        height: 100vh;
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
         padding: 2rem;
-        border-bottom: 1px solid #222;
     }
-
-    .progress-bar {
-        display: none;
+    
+    h1 {
+        font-size: clamp(2.5rem, 12vw, 4rem);
+    }
+    
+    .manifesto {
+        font-size: 1.1rem;
+    }
+    
+    .foto-panel img {
+        max-height: 50vh;
+        max-width: 85vw;
     }
 }
 
-/* ========== ESTILOS COMUNES ========== */
+/* Resto de estilos igual... */
 .noise {
     position: fixed;
     top: 0;
@@ -129,7 +113,7 @@ h1 {
     text-transform: uppercase;
     color: var(--text-dim);
     opacity: 0;
-    animation: fadeInUp 1.5s ease 0.6s forwards;
+    animation: fadeInUp 1.5s ease 0.6s forwards, pulse 2s ease-in-out infinite 2s;
 }
 
 .foto-panel img {
@@ -140,7 +124,8 @@ h1 {
     transition: filter 0.6s ease, transform 0.6s ease;
 }
 
-.foto-panel:hover img {
+.foto-panel:hover img,
+.foto-panel:active img {
     filter: grayscale(0%);
     transform: scale(1.02);
 }
@@ -205,22 +190,7 @@ h1 {
     }
 }
 
-/* Móvil: ajustes de tamaño */
-@media (max-width: 768px) {
-    h1 {
-        font-size: clamp(2.5rem, 10vw, 4rem);
-    }
-
-    .manifesto {
-        font-size: 1.1rem;
-    }
-
-    .foto-panel img {
-        max-height: 60vh;
-        max-width: 90vw;
-    }
-
-    .caption {
-        font-size: 1rem;
-    }
+@keyframes pulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
 }
