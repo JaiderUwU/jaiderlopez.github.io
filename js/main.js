@@ -9,37 +9,86 @@ function getScrollWidth() {
     return container.scrollWidth - window.innerWidth;
 }
 
-// Solo en desktop (pantallas grandes)
-if (window.innerWidth > 768) {
-    // Scroll con rueda del mouse
-    window.addEventListener('wheel', (e) => {
-        e.preventDefault();
-        targetScroll += e.deltaY;
-        const maxScroll = getScrollWidth();
-        targetScroll = Math.max(0, Math.min(targetScroll, maxScroll));
-    }, { passive: false });
+// ========== DESKTOP: Scroll con rueda ==========
+window.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    targetScroll += e.deltaY;
+    
+    const maxScroll = getScrollWidth();
+    targetScroll = Math.max(0, Math.min(targetScroll, maxScroll));
+}, { passive: false });
 
-    // Animación
-    function animate() {
-        scrollAmount += (targetScroll - scrollAmount) * ease;
-        container.style.transform = `translateX(-${scrollAmount}px)`;
-        
-        const progress = (scrollAmount / getScrollWidth()) * 100;
-        progressBar.style.width = `${progress}%`;
-        
-        requestAnimationFrame(animate);
+// ========== MÓVIL: Touch swipe horizontal ==========
+let touchStartX = 0;
+let touchCurrentX = 0;
+let isTouching = false;
+let velocity = 0;
+let lastTouchX = 0;
+let lastTime = 0;
+
+document.addEventListener('touchstart', (e) => {
+    isTouching = true;
+    touchStartX = e.touches[0].clientX;
+    touchCurrentX = targetScroll;
+    lastTouchX = touchStartX;
+    lastTime = Date.now();
+    velocity = 0;
+}, { passive: false });
+
+document.addEventListener('touchmove', (e) => {
+    if (!isTouching) return;
+    e.preventDefault(); // Prevenir scroll nativo
+    
+    const touchX = e.touches[0].clientX;
+    const diff = touchStartX - touchX;
+    
+    // Calcular velocidad para inercia
+    const now = Date.now();
+    const dt = now - lastTime;
+    if (dt > 0) {
+        velocity = (lastTouchX - touchX) / dt;
     }
-    animate();
+    lastTouchX = touchX;
+    lastTime = now;
+    
+    targetScroll = touchCurrentX + diff;
+    
+    const maxScroll = getScrollWidth();
+    targetScroll = Math.max(0, Math.min(targetScroll, maxScroll));
+}, { passive: false });
 
-    // Teclas
-    window.addEventListener('keydown', (e) => {
-        const scrollStep = window.innerWidth * 0.8;
-        
-        if (e.key === 'ArrowRight') targetScroll += scrollStep;
-        if (e.key === 'ArrowLeft') targetScroll -= scrollStep;
-        
-        const maxScroll = getScrollWidth();
-        targetScroll = Math.max(0, Math.min(targetScroll, maxScroll));
-    });
+document.addEventListener('touchend', () => {
+    isTouching = false;
+    
+    // Inercia: continuar movimiento después de soltar
+    const inertia = velocity * 200; // Ajustar para más/menos deslizamiento
+    targetScroll += inertia;
+    
+    const maxScroll = getScrollWidth();
+    targetScroll = Math.max(0, Math.min(targetScroll, maxScroll));
+});
+
+// ========== ANIMACIÓN ==========
+function animate() {
+    scrollAmount += (targetScroll - scrollAmount) * ease;
+    container.style.transform = `translateX(-${scrollAmount}px)`;
+    
+    const maxScroll = getScrollWidth();
+    const progress = maxScroll > 0 ? (scrollAmount / maxScroll) * 100 : 0;
+    progressBar.style.width = `${progress}%`;
+    
+    requestAnimationFrame(animate);
 }
-// En móvil: no hacemos nada, dejamos el scroll nativo vertical
+
+animate();
+
+// ========== TECLAS ==========
+window.addEventListener('keydown', (e) => {
+    const scrollStep = window.innerWidth * 0.8;
+    
+    if (e.key === 'ArrowRight') targetScroll += scrollStep;
+    if (e.key === 'ArrowLeft') targetScroll -= scrollStep;
+    
+    const maxScroll = getScrollWidth();
+    targetScroll = Math.max(0, Math.min(targetScroll, maxScroll));
+});
