@@ -11,60 +11,81 @@
 <body>
     <div class="noise"></div>
     
-    <main class="container">
-        <section class="intro">
-            <h1>Jaider López</h1>
-            <p class="manifesto">
-                Aquí escribe tu manifiesto personal.<br>
-                Algo íntimo que conecte emocionalmente con quien ve tu trabajo.
-            </p>
-        </section>
-
-        <section class="fotos">
-            <h2>Fotografías</h2>
-            <div class="grid-fotos">
-                
-                <figure class="foto-item">
-                    <img src="images/20251220_122834.jpg" alt="Foto 1" loading="lazy">
-                    <figcaption>Momento capturado, 2024</figcaption>
-                </figure>
-                
-                <figure class="foto-item">
-                    <img src="images/20251219_194030.jpg" alt="Foto 2" loading="lazy">
-                    <figcaption>Luz natural</figcaption>
-                </figure>
-                
-                <figure class="foto-item">
-                    <img src="images/dji_mimo_20251219_162908_0_1766180358943_burst%20(2).jpg" alt="Foto 3" loading="lazy">
-                    <figcaption>Secuencia en movimiento</figcaption>
-                </figure>
-                
-                <figure class="foto-item">
-                    <img src="images/dji_mimo_20251219_095838_0_1766942231378_photo.jpg" alt="Foto 4" loading="lazy">
-                    <figcaption>Mañana temprano</figcaption>
-                </figure>
-                
-                <figure class="foto-item">
-                    <img src="images/20251217_100420.jpg" alt="Foto 5" loading="lazy">
-                    <figcaption>Instante cotidiano</figcaption>
-                </figure>
-                
-                <figure class="foto-item">
-                    <img src="images/dji_mimo_20251217_133506_0_1766008875565_photo.jpg" alt="Foto 6" loading="lazy">
-                    <figcaption>Reflejos</figcaption>
-                </figure>
-                
+    <!-- Contenedor horizontal -->
+    <div class="horizontal-container">
+        
+        <!-- Sección 1: Intro -->
+        <section class="panel intro">
+            <div class="content">
+                <h1>Jaider<br>López</h1>
+                <p class="manifesto">
+                    Aquí escribe tu manifiesto personal.<br>
+                    Algo íntimo que conecte emocionalmente<br>
+                    con quien ve tu trabajo.
+                </p>
+                <span class="scroll-hint">→ Desliza</span>
             </div>
         </section>
 
-        <footer class="contacto">
-            <p>jaider@ejemplo.com</p>
-            <div class="redes">
-                <a href="#" aria-label="Instagram">IG</a>
-                <a href="#" aria-label="Behance">Be</a>
+        <!-- Sección 2-7: Fotos individuales -->
+        <section class="panel foto-panel">
+            <div class="content">
+                <img src="images/20251220_122834.jpg" alt="Foto 1">
+                <p class="caption">Momento capturado, 2024</p>
             </div>
-        </footer>
-    </main>
+        </section>
+
+        <section class="panel foto-panel">
+            <div class="content">
+                <img src="images/20251219_194030.jpg" alt="Foto 2">
+                <p class="caption">Luz natural</p>
+            </div>
+        </section>
+
+        <section class="panel foto-panel">
+            <div class="content">
+                <img src="images/dji_mimo_20251219_162908_0_1766180358943_burst%20(2).jpg" alt="Foto 3">
+                <p class="caption">Secuencia en movimiento</p>
+            </div>
+        </section>
+
+        <section class="panel foto-panel">
+            <div class="content">
+                <img src="images/dji_mimo_20251219_095838_0_1766942231378_photo.jpg" alt="Foto 4">
+                <p class="caption">Mañana temprano</p>
+            </div>
+        </section>
+
+        <section class="panel foto-panel">
+            <div class="content">
+                <img src="images/20251217_100420.jpg" alt="Foto 5">
+                <p class="caption">Instante cotidiano</p>
+            </div>
+        </section>
+
+        <section class="panel foto-panel">
+            <div class="content">
+                <img src="images/dji_mimo_20251217_133506_0_1766008875565_photo.jpg" alt="Foto 6">
+                <p class="caption">Reflejos</p>
+            </div>
+        </section>
+
+        <!-- Sección final: Contacto -->
+        <section class="panel contacto-panel">
+            <div class="content">
+                <h2>Contacto</h2>
+                <p>jaider@ejemplo.com</p>
+                <div class="redes">
+                    <a href="#">Instagram</a>
+                    <a href="#">Behance</a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Indicador de progreso -->
+    <div class="progress-bar"></div>
 
     <script src="js/main.js"></script>
 </body>
