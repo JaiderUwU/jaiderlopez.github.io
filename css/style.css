@@ -166,6 +166,7 @@ h1 {
     text-transform: uppercase;
     border-bottom: 1px solid transparent;
     transition: border-color 0.3s;
+    font-family: 'Sixtyfour Convergence', sans-serif;
 }
 
 .redes a:hover {
