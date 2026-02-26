@@ -196,3 +196,33 @@ h1 {
     0%, 100% { opacity: 0.3; }
     50% { opacity: 1; }
 }
+    /* Asegura que el contenedor horizontal no colapse la primera sección */
+.horizontal-container {
+    display: flex;
+    flex-wrap: nowrap;
+    width: max-content; /* Esto permite que crezca hacia la derecha */
+}
+
+/* Fuerza a que la intro sea visible y esté por encima de todo */
+.panel.intro {
+    min-width: 100vw; /* Ocupa todo el ancho de la pantalla */
+    height: 100vh;    /* Ocupa todo el alto */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 10;      /* Esto lo pone por encima de la capa 'noise' */
+    background-color: #000; /* Asegura un fondo negro para que resalte el texto */
+}
+
+.intro h1 {
+    color: #fff;      /* Texto en blanco */
+    font-size: 5rem;  /* Tamaño grande para que destaque */
+    line-height: 0.9;
+    margin-bottom: 20px;
+}
+
+.manifesto {
+    color: #ccc;      /* Gris claro para el texto secundario */
+    max-width: 400px;
+}
