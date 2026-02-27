@@ -78,7 +78,7 @@ html, body {
     text-align: center;
 }
 h1 {
-    font-family: var(--font-sans);  /* ← AHORA USA INTER */
+    font-family: var(--font-serif);  /* ← AHORA USA INTER */
     /* o simplemente: font-family: 'Inter', sans-serif; */
     font-size: clamp(3rem, 12vw, 10rem);
     font-weight: 300;
