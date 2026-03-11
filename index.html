@@ -8,196 +8,184 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400&family=Sixtyfour+Convergence&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<div class="noise"></div>
+    <div class="noise"></div>
 
-<nav class="side-nav" id="sideNav">
-    <div class="nav-item active" data-slide="0" onclick="goToSlide(0)">
-        <div class="nav-dot"></div>
-        <span class="nav-label">Jaider Lopez</span>
+    <!-- MENÚ LATERAL TIPO ED MAVERICK -->
+    <nav class="side-nav" id="sideNav">
+        <div class="nav-item active" data-slide="0" onclick="goToSlide(0)">
+            <div class="nav-line"></div>
+            <span class="nav-text">Inicio</span>
+        </div>
+        
+        <div class="nav-item" data-slide="1" onclick="goToSlide(1)">
+            <div class="nav-line"></div>
+            <span class="nav-text">Fotografías</span>
+        </div>
+        
+        <div class="nav-item" data-slide="7" onclick="goToSlide(7)">
+            <div class="nav-line"></div>
+            <span class="nav-text">Proyectos</span>
+        </div>
+        
+        <div class="nav-item" data-slide="9" onclick="goToSlide(9)">
+            <div class="nav-line"></div>
+            <span class="nav-text">Contacto</span>
+        </div>
+    </nav>
+
+    <!-- CONTADOR -->
+    <div class="slide-title-display" id="slideTitleDisplay">Inicio</div>
+    <div class="slide-counter">
+        <span class="slide-current" id="slideCurrentNum">01</span>
+        <span class="slide-sep">/</span>
+        <span class="slide-total">10</span>
     </div>
 
-    <div class="nav-sep"></div>
+    <!-- CONTENIDO -->
+    <div class="horizontal-container" id="hContainer">
 
-    <div class="nav-item" data-slide="1" onclick="goToSlide(1)">
-        <div class="nav-dot"></div>
-        <span class="nav-label">Fotografías</span>
-    </div>
-    <div class="nav-item" data-slide="2" onclick="goToSlide(2)" style="padding:0.5rem 0">
-        <div class="nav-dot" style="width:2px;height:2px;opacity:0.4"></div>
-    </div>
-    <div class="nav-item" data-slide="3" onclick="goToSlide(3)" style="padding:0.5rem 0">
-        <div class="nav-dot" style="width:2px;height:2px;opacity:0.4"></div>
-    </div>
-    <div class="nav-item" data-slide="4" onclick="goToSlide(4)" style="padding:0.5rem 0">
-        <div class="nav-dot" style="width:2px;height:2px;opacity:0.4"></div>
-    </div>
-    <div class="nav-item" data-slide="5" onclick="goToSlide(5)" style="padding:0.5rem 0">
-        <div class="nav-dot" style="width:2px;height:2px;opacity:0.4"></div>
-    </div>
-    <div class="nav-item" data-slide="6" onclick="goToSlide(6)" style="padding:0.5rem 0">
-        <div class="nav-dot" style="width:2px;height:2px;opacity:0.4"></div>
-    </div>
-
-    <div class="nav-sep"></div>
-
-    <div class="nav-item" data-slide="7" onclick="goToSlide(7)">
-        <div class="nav-dot"></div>
-        <span class="nav-label">Proyectos</span>
-    </div>
-    <div class="nav-item" data-slide="8" onclick="goToSlide(8)" style="padding:0.5rem 0">
-        <div class="nav-dot" style="width:2px;height:2px;opacity:0.4"></div>
-    </div>
-
-    <div class="nav-sep"></div>
-
-    <div class="nav-item" data-slide="9" onclick="goToSlide(9)">
-        <div class="nav-dot"></div>
-        <span class="nav-label">Contacto</span>
-    </div>
-</nav>
-
-<div class="slide-title-display" id="slideTitleDisplay">Inicio</div>
-<div class="slide-counter">
-    <span class="slide-current" id="slideCurrentNum">01</span>
-    <span class="slide-sep">/</span>
-    <span class="slide-total">10</span>
-</div>
-
-<div class="horizontal-container" id="hContainer">
-
-    <section class="panel intro" data-title="Inicio">
-        <div class="intro-content">
-            <div class="intro-meta">
-                <span class="intro-location">Bogotá, Colombia</span>
-                <span class="intro-year">2026</span>
-            </div>
-            <h1>Jaider<br>Lopez</h1>
-            <div class="intro-bottom">
-                <p class="tagline">
-                    Datos, automatización<br>
-                    y <em>algo de luz natural</em>.
-                </p>
-                <div class="roles-wrap">
-                    <p class="roles-label">Actualmente</p>
-                    <div class="roles-ticker">
-                        <span id="role-display">Procesamiento de Datos</span>
+        <!-- 0: INTRO -->
+        <section class="panel intro" data-title="Inicio">
+            <div class="intro-content">
+                <div class="intro-meta">
+                    <span class="intro-location">Bogotá, Colombia</span>
+                    <span class="intro-year">2026</span>
+                </div>
+                <h1>Jaider<br>Lopez</h1>
+                <div class="intro-bottom">
+                    <p class="tagline">
+                        Datos, automatización<br>
+                        y <em>algo de luz natural</em>.
+                    </p>
+                    <div class="roles-wrap">
+                        <p class="roles-label">Actualmente</p>
+                        <div class="roles-ticker">
+                            <span id="role-display">Procesamiento de Datos</span>
+                        </div>
                     </div>
                 </div>
+                <span class="scroll-hint">Desliza para explorar →</span>
             </div>
-            <span class="scroll-hint">Desliza para explorar →</span>
-        </div>
-    </section>
+        </section>
 
-    <section class="panel foto-panel" data-title="Fotografías — 1/6">
-        <div style="text-align:center">
-            <img src="images/20251220_122834.jpg" alt="Foto 1">
-            <p class="caption">Momento capturado, 2024</p>
-        </div>
-    </section>
-    <section class="panel foto-panel" data-title="Fotografías — 2/6">
-        <div style="text-align:center">
-            <img src="images/20251219_194030.jpg" alt="Foto 2">
-            <p class="caption">Luz natural</p>
-        </div>
-    </section>
-    <section class="panel foto-panel" data-title="Fotografías — 3/6">
-        <div style="text-align:center">
-            <img src="images/dji_mimo_20251219_162908_0_1766180358943_burst%20(2).jpg" alt="Foto 3">
-            <p class="caption">Secuencia en movimiento</p>
-        </div>
-    </section>
-    <section class="panel foto-panel" data-title="Fotografías — 4/6">
-        <div style="text-align:center">
-            <img src="images/dji_mimo_20251219_095838_0_1766942231378_photo.jpg" alt="Foto 4">
-            <p class="caption">Mañana temprano</p>
-        </div>
-    </section>
-    <section class="panel foto-panel" data-title="Fotografías — 5/6">
-        <div style="text-align:center">
-            <img src="images/20251217_100420.jpg" alt="Foto 5">
-            <p class="caption">Instante cotidiano</p>
-        </div>
-    </section>
-    <section class="panel foto-panel" data-title="Fotografías — 6/6">
-        <div style="text-align:center">
-            <img src="images/dji_mimo_20251217_133506_0_1766008875565_photo.jpg" alt="Foto 6">
-            <p class="caption">Reflejos</p>
-        </div>
-    </section>
-
-    <section class="panel proyecto-panel" data-title="Proyectos — 001">
-        <div class="proyecto-header">
-            <span class="proyecto-index">Proyecto 001</span>
-            <span class="proyecto-anio">2026</span>
-        </div>
-        <div class="proyecto-screenshot">
-            <div class="screenshot-placeholder"></div>
-            <div class="screenshot-overlay"></div>
-        </div>
-        <div class="proyecto-info">
-            <div>
-                <h3 class="proyecto-nombre">Plataforma de Feedback<br>con Inteligencia Artificial</h3>
-                <p class="proyecto-desc">Sistema automatizado que captura comentarios de clientes, los clasifica como Positivo, Neutro o Negativo usando IA (LLaMA 3.3 vía Groq API), y los visualiza en un dashboard interactivo con filtros por fecha, producto y sentimiento.</p>
+        <!-- 1-6: FOTOS -->
+        <section class="panel foto-panel" data-title="Fotografías — 1/6">
+            <div class="content-wrapper">
+                <img src="images/20251220_122834.jpg" alt="Foto 1">
+                <p class="caption">Momento capturado, 2024</p>
             </div>
-            <div class="proyecto-aside">
-                <div class="proyecto-tags">
-                    <span class="tag">Apps Script</span>
-                    <span class="tag">Groq API</span>
-                    <span class="tag">LLaMA 3.3</span>
-                    <span class="tag">Looker Studio</span>
-                    <span class="tag">Google Sheets</span>
+        </section>
+        
+        <section class="panel foto-panel" data-title="Fotografías — 2/6">
+            <div class="content-wrapper">
+                <img src="images/20251219_194030.jpg" alt="Foto 2">
+                <p class="caption">Luz natural</p>
+            </div>
+        </section>
+        
+        <section class="panel foto-panel" data-title="Fotografías — 3/6">
+            <div class="content-wrapper">
+                <img src="images/dji_mimo_20251219_162908_0_1766180358943_burst%20(2).jpg" alt="Foto 3">
+                <p class="caption">Secuencia en movimiento</p>
+            </div>
+        </section>
+        
+        <section class="panel foto-panel" data-title="Fotografías — 4/6">
+            <div class="content-wrapper">
+                <img src="images/dji_mimo_20251219_095838_0_1766942231378_photo.jpg" alt="Foto 4">
+                <p class="caption">Mañana temprano</p>
+            </div>
+        </section>
+        
+        <section class="panel foto-panel" data-title="Fotografías — 5/6">
+            <div class="content-wrapper">
+                <img src="images/20251217_100420.jpg" alt="Foto 5">
+                <p class="caption">Instante cotidiano</p>
+            </div>
+        </section>
+        
+        <section class="panel foto-panel" data-title="Fotografías — 6/6">
+            <div class="content-wrapper">
+                <img src="images/dji_mimo_20251217_133506_0_1766008875565_photo.jpg" alt="Foto 6">
+                <p class="caption">Reflejos</p>
+            </div>
+        </section>
+
+        <!-- 7: PROYECTO 01 -->
+        <section class="panel proyecto-panel" data-title="Proyectos — 001">
+            <div class="proyecto-header">
+                <span class="proyecto-index">Proyecto 001</span>
+                <span class="proyecto-anio">2026</span>
+            </div>
+            <div class="proyecto-screenshot">
+                <div class="screenshot-placeholder"></div>
+                <div class="screenshot-overlay"></div>
+            </div>
+            <div class="proyecto-info">
+                <div>
+                    <h3 class="proyecto-nombre">Plataforma de Feedback<br>con Inteligencia Artificial</h3>
+                    <p class="proyecto-desc">Sistema automatizado que captura comentarios de clientes, los clasifica como Positivo, Neutro o Negativo usando IA (LLaMA 3.3 vía Groq API), y los visualiza en un dashboard interactivo con filtros por fecha, producto y sentimiento.</p>
                 </div>
-                <a href="https://sites.google.com/view/plataforma-de-feedback-alegra/p%C3%A1gina-principal"
-                   target="_blank" rel="noopener noreferrer" class="proyecto-link">
-                    Ver proyecto <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                </a>
+                <div class="proyecto-aside">
+                    <div class="proyecto-tags">
+                        <span class="tag">Apps Script</span>
+                        <span class="tag">Groq API</span>
+                        <span class="tag">LLaMA 3.3</span>
+                        <span class="tag">Looker Studio</span>
+                        <span class="tag">Google Sheets</span>
+                    </div>
+                    <a href="https://sites.google.com/view/plataforma-de-feedback-alegra/p%C3%A1gina-principal"
+                       target="_blank" rel="noopener noreferrer" class="proyecto-link">
+                        Ver proyecto <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="panel proximo-panel" data-title="Proyectos — 002">
-        <div class="proximo-inner">
-            <p class="proximo-num">Proyecto 002</p>
-            <h3 class="proximo-titulo">Próximamente</h3>
-            <p class="proximo-desc">
-                Cursando Administración y Gestión<br>
-                de Bases de Datos e IA aplicada.<br>
-                Nuevos proyectos en camino.
-            </p>
-            <div class="proximo-tags">
-                <span class="tag" style="color:#242424;border-color:#161616">Bases de Datos</span>
-                <span class="tag" style="color:#242424;border-color:#161616">IA</span>
-                <span class="tag" style="color:#242424;border-color:#161616">Automatización</span>
+        <!-- 8: PROYECTO 02 -->
+        <section class="panel proximo-panel" data-title="Proyectos — 002">
+            <div class="proximo-inner">
+                <p class="proximo-num">Proyecto 002</p>
+                <h3 class="proximo-titulo">Próximamente</h3>
+                <p class="proximo-desc">
+                    Cursando Administración y Gestión<br>
+                    de Bases de Datos e IA aplicada.<br>
+                    Nuevos proyectos en camino.
+                </p>
+                <div class="proximo-tags">
+                    <span class="tag" style="color:#242424;border-color:#161616">Bases de Datos</span>
+                    <span class="tag" style="color:#242424;border-color:#161616">IA</span>
+                    <span class="tag" style="color:#242424;border-color:#161616">Automatización</span>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="panel contacto-panel" data-title="Contacto">
-        <div style="text-align:center">
-            <h2>Contacto</h2>
-            <p>lopezmao.gl@gmail.com</p>
-            <div class="redes">
-                <a href="https://www.instagram.com/triste.zzza/" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-brands fa-instagram"></i> Instagram
-                </a>
-                <a href="https://www.linkedin.com/in/jaiderlopez" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-brands fa-linkedin"></i> LinkedIn
-                </a>
-                <a href="https://github.com/JaiderUwU" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-brands fa-github"></i> GitHub
-                </a>
+        <!-- 9: CONTACTO -->
+        <section class="panel contacto-panel" data-title="Contacto">
+            <div class="content-wrapper">
+                <h2>Contacto</h2>
+                <p>lopezmao.gl@gmail.com</p>
+                <div class="redes">
+                    <a href="https://www.instagram.com/triste.zzza/" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-brands fa-instagram"></i> Instagram
+                    </a>
+                    <a href="https://www.linkedin.com/in/jaiderlopez" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-brands fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="https://github.com/JaiderUwU" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-brands fa-github"></i> GitHub
+                    </a>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-</div>
+    </div>
 
-<div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
 
-<script src="main.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
