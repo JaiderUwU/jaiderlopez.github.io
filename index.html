@@ -11,16 +11,20 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
     <link rel="manifest" href="favicon_io/site.webmanifest">
+    
+    <!-- FUENTES -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400&family=Sixtyfour+Convergence&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="noise"></div>
 
-    <!-- MENÚ LATERAL TIPO ED MAVERICK -->
+    <!-- MENÚ LATERAL -->
     <nav class="side-nav" id="sideNav">
         <div class="nav-item active" data-slide="0" onclick="goToSlide(0)">
             <div class="nav-line"></div>
@@ -42,20 +46,24 @@
             <span class="nav-text">Contacto</span>
         </div>
     </nav>
-//contador de pagina
-<div class="page-counter" id="pageCounter">
-    <span class="page-current" id="slideCurrentNum">01</span>
-    <span class="page-sep">/</span>
-    <span class="page-total">10</span>
-</div>
 
-<!-- CONTADOR DE FOTOS (ahora abajo) -->
-<div class="photo-counter" id="photoCounter" style="display: none;">
-    <span class="photo-label">Fotografías</span>
-    <span class="photo-current" id="photoCurrentNum">1</span>
-    <span class="photo-sep">/</span>
-    <span class="photo-total">6</span>
-</div>
+    <!-- CONTADOR DE PÁGINAS - ARRIBA DERECHA -->
+    <div class="page-counter" id="pageCounter">
+        <span class="page-current" id="slideCurrentNum">01</span>
+        <span class="page-sep">/</span>
+        <span class="page-total">10</span>
+    </div>
+
+    <!-- CONTADOR DE FOTOS - ABAJO (solo visible en fotos) -->
+    <div class="photo-counter" id="photoCounter" style="display: none;">
+        <span class="photo-label">Fotografías</span>
+        <span class="photo-current" id="photoCurrentNum">1</span>
+        <span class="photo-sep">/</span>
+        <span class="photo-total">6</span>
+    </div>
+
+    <!-- TÍTULO DE SECCIÓN -->
+    <div class="section-title" id="slideTitleDisplay">Inicio</div>
 
     <!-- CONTENIDO -->
     <div class="horizontal-container" id="hContainer">
@@ -85,42 +93,42 @@
         </section>
 
         <!-- 1-6: FOTOS -->
-        <section class="panel foto-panel" data-title="Fotografías — 1/6">
+        <section class="panel foto-panel" data-title="Fotografías">
             <div class="content-wrapper">
                 <img src="images/20251220_122834.jpg" alt="Foto 1">
                 <p class="caption">Momento capturado, 2024</p>
             </div>
         </section>
         
-        <section class="panel foto-panel" data-title="Fotografías — 2/6">
+        <section class="panel foto-panel" data-title="Fotografías">
             <div class="content-wrapper">
                 <img src="images/20251219_194030.jpg" alt="Foto 2">
                 <p class="caption">Luz natural</p>
             </div>
         </section>
         
-        <section class="panel foto-panel" data-title="Fotografías — 3/6">
+        <section class="panel foto-panel" data-title="Fotografías">
             <div class="content-wrapper">
                 <img src="images/dji_mimo_20251219_162908_0_1766180358943_burst%20(2).jpg" alt="Foto 3">
                 <p class="caption">Secuencia en movimiento</p>
             </div>
         </section>
         
-        <section class="panel foto-panel" data-title="Fotografías — 4/6">
+        <section class="panel foto-panel" data-title="Fotografías">
             <div class="content-wrapper">
                 <img src="images/dji_mimo_20251219_095838_0_1766942231378_photo.jpg" alt="Foto 4">
                 <p class="caption">Mañana temprano</p>
             </div>
         </section>
         
-        <section class="panel foto-panel" data-title="Fotografías — 5/6">
+        <section class="panel foto-panel" data-title="Fotografías">
             <div class="content-wrapper">
                 <img src="images/20251217_100420.jpg" alt="Foto 5">
                 <p class="caption">Instante cotidiano</p>
             </div>
         </section>
         
-        <section class="panel foto-panel" data-title="Fotografías — 6/6">
+        <section class="panel foto-panel" data-title="Fotografías">
             <div class="content-wrapper">
                 <img src="images/dji_mimo_20251217_133506_0_1766008875565_photo.jpg" alt="Foto 6">
                 <p class="caption">Reflejos</p>
@@ -197,8 +205,12 @@
 
     </div>
 
-    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    <!-- PROGRESS BAR -->
+    <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+    </div>
 
+    <!-- JAVASCRIPT -->
     <script src="js/main.js"></script>
 </body>
 </html>
